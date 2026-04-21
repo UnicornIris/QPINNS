@@ -1,0 +1,14 @@
+21:07:53 | ============================================================
+21:07:53 | Training helmholtz | mode=te | qubits=4 | noise=0.0
+21:07:53 | Parameters: {'quantum_layer': 36, 'te': 184, 'postprocessor': 301, 'total': 521}
+21:07:53 | ============================================================
+21:07:54 | Epoch     0 | loss=8.731e+01 | loss_r=8.731e+01 | loss_bc=2.976e-32 | lr=1.00e-03 | dt=0.43s
+21:08:16 | Epoch    50 | loss=6.113e+01 | loss_r=6.113e+01 | loss_bc=2.976e-32 | lr=1.00e-03 | dt=0.41s
+21:08:37 | Epoch   100 | loss=3.519e+01 | loss_r=3.519e+01 | loss_bc=2.976e-32 | lr=1.00e-03 | dt=0.40s | val_l2=41.16%
+21:08:57 | Epoch   150 | loss=2.166e+01 | loss_r=2.166e+01 | loss_bc=2.976e-32 | lr=1.00e-03 | dt=0.41s | val_l2=41.16%
+21:09:18 | Epoch   200 | loss=1.350e+01 | loss_r=1.350e+01 | loss_bc=2.976e-32 | lr=1.00e-03 | dt=0.47s | val_l2=30.25%
+21:09:39 | Epoch   250 | loss=1.175e+01 | loss_r=1.175e+01 | loss_bc=2.976e-32 | lr=1.00e-03 | dt=0.42s | val_l2=30.25%
+21:10:00 | Epoch   300 | loss=1.085e+01 | loss_r=1.085e+01 | loss_bc=2.976e-32 | lr=1.00e-03 | dt=0.43s | val_l2=26.38%
+21:10:22 | Epoch   350 | loss=9.727e+00 | loss_r=9.727e+00 | loss_bc=2.976e-32 | lr=1.00e-03 | dt=0.43s | val_l2=26.38%
+21:10:43 | Epoch   400 | loss=8.249e+00 | loss_r=8.249e+00 | loss_bc=2.976e-32 | lr=1.00e-03 | dt=0.45s | val_l2=23.84%
+21:10:43 | Training complete. Best loss: 8.2495e+00 | Best val L2: 23.84%
