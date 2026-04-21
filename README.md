@@ -10,12 +10,11 @@ The short answer is yes — with an important caveat about *which* problems surv
 
 1. [Background](#background)
 2. [Overview](#overview)
-3. [Key Results](#key-results)
-4. [How to Use This Codebase](#how-to-use-this-codebase)
-5. [IonQ Hardware / Simulator Runs](#ionq-hardware--simulator-runs)
-6. [Evaluation Modes](#evaluation-modes)
-7. [Scientific Narrative](#scientific-narrative)
-8. [Repository Structure](#repository-structure)
+3. [How to Use This Codebase](#how-to-use-this-codebase)
+4. [IonQ Hardware / Simulator Runs](#ionq-hardware--simulator-runs)
+5. [Evaluation Modes](#evaluation-modes)
+6. [Scientific Narrative](#scientific-narrative)
+7. [Repository Structure](#repository-structure)
 
 ---
 
@@ -38,33 +37,6 @@ The work is organized around two complementary Helmholtz benchmarks:
 **Hard Helmholtz benchmark** (`sin(πx₁) sin(4πx₂)`) — a higher-frequency target used to expose and diagnose the simulator-to-hardware gap. Clean simulation results are strong, but real-QPU performance degrades due to high readout sensitivity in the classical postprocessor. This benchmark now functions as a **failure analysis and diagnosis** case, useful for understanding *why* hardware runs fail before investing in QPU time.
 
 **Hardware-matched Helmholtz benchmark** (`sin(πx₁) sin(πx₂)`) — a lower-frequency target chosen after diagnosing why the harder benchmark fails on hardware. This is the **primary positive result**: TE-QPINN runs on a real IonQ QPU with high correlation to the exact solution, while the repeat-QPINN baseline fails under the same conditions.
-
----
-
-## Key Results
-
-### Hard Helmholtz benchmark
-
-| Setting | Metric |
-|---|---|
-| Clean TE-QPINN (best checkpoint) | ~1.38% relative L2 |
-| Spectral upper bound (readout gain) | ~125 |
-| Max local final-output gain | ~70 |
-| Real QPU | Not reliable — high gain amplifies hardware noise |
-
-The elevated gain values explain why this benchmark fails on hardware: noise in the quantum outputs is amplified strongly by the classical readout MLP, causing the final PDE prediction to shift substantially even under small perturbations.
-
-### Hardware-matched Helmholtz benchmark (main result)
-
-| Setting | Hardware-vs-exact L2 | Correlation |
-|---|---|---|
-| Clean TE-QPINN (4q / 3L, simulator) | ~1.70% rel L2 | — |
-| TE-QPINN, IonQ forte-1 noisy sim | 31.18% | 0.982 |
-| Repeat-QPINN, IonQ forte-1 noisy sim | 95.07% | 0.454 |
-| **TE-QPINN, real IonQ QPU** | **33.13%** | **0.970** |
-| Repeat-QPINN, real IonQ QPU | 94.98% | 0.406 |
-
-TE-QPINN consistently outperforms repeat-QPINN in clean simulation, noisy simulation, and on real hardware. The noisy-simulator result (correlation 0.982) closely predicts the real-QPU result (correlation 0.970), validating the simulator as a reliable proxy.
 
 ---
 
@@ -254,33 +226,6 @@ The gain analysis was performed on the hard benchmark *before* running the hardw
 ---
 
 ## Repository Structure
-
-### Experiment folders
-
-**Hard benchmark**
-
-| Folder | Contents |
-|---|---|
-| `experiments/full_comparison_fixed` | Clean classical / repeat / TE comparison |
-| `experiments/noise_robustness` | Synthetic-noise robustness study |
-| `experiments/constraint_rescue/te_hardbc_clean_ft_e200` | Best clean TE checkpoint + gain diagnosis |
-
-**Hardware-matched benchmark**
-
-| Folder | Contents |
-|---|---|
-| `experiments/helmholtz_a11_te_4q2l_hardbc` | Clean TE-QPINN, 2 layers |
-| `experiments/helmholtz_a11_te_4q3l_hardbc` | Clean TE-QPINN, 3 layers (primary clean checkpoint) |
-| `experiments/helmholtz_a11_full_comparison` | Classical PINN and repeat-QPINN comparison |
-| `experiments/ionq_forte1_helmholtz_a11_te_4q3l_tanh_opt1` | TE-QPINN, IonQ forte-1 noisy simulator |
-| `experiments/ionq_forte1_helmholtz_a11_repeat_4q3l_tanh_opt1` | Repeat-QPINN, IonQ forte-1 noisy simulator |
-| `experiments/ionq_qpu_helmholtz_a11_te_4q3l_tanh_debias512_opt1` | **TE-QPINN, real IonQ QPU (primary result)** |
-| `experiments/ionq_qpu_helmholtz_a11_repeat_4q3l_tanh_debias512_opt1` | Matched repeat-QPINN, real IonQ QPU |
-
-**Supplementary**
-
-- `experiments/archive` — one-off demos, aborted branches, and low-value clutter not central to the paper
-- `notes/apr07_a11_results_summary.txt` — plain-text summary of current (1,1) benchmark results
 
 ### Code structure
 
