@@ -1,0 +1,64 @@
+{
+  "rel_l2_u": 140.73719236756048,
+  "rel_l2_f": 100.00179223030847,
+  "mse_u": 0.4853199716231289,
+  "max_err_u": 1.5953717377296104,
+  "X_star": "array((10000, 2))",
+  "u_star": "array((10000, 1))",
+  "u_pred": "array((10000, 1))",
+  "f_star": "array((10000, 1))",
+  "f_pred": "array((10000, 1))",
+  "grid_shape": [
+    100,
+    100
+  ],
+  "best_loss": 679.5159184343958,
+  "train_time_sec": 0.12547755241394043,
+  "total_params": 459,
+  "loss_history": [
+    681.1682840413862,
+    679.5159184343958
+  ],
+  "config": {
+    "problem": "helmholtz",
+    "mode": "baseline",
+    "input_dim": 2,
+    "output_dim": 1,
+    "num_qubits": 2,
+    "num_quantum_layers": 1,
+    "hidden_dim": 50,
+    "q_ansatz": "hea",
+    "encoding": "angle",
+    "epochs": 1,
+    "batch_size": 2,
+    "lr": 0.0005,
+    "optimizer": "adam",
+    "bc_weight": 10.0,
+    "grad_clip": 1.0,
+    "print_every": 1,
+    "noise_strength": 0.0,
+    "shots": null,
+    "qml_device": "default.qubit",
+    "domain_lo": [
+      -1.0,
+      -1.0
+    ],
+    "domain_hi": [
+      1.0,
+      1.0
+    ],
+    "helmholtz_a1": 1.0,
+    "helmholtz_a2": 4.0,
+    "helmholtz_lambda": 1.0,
+    "te_hidden_layers": 2,
+    "te_width": 32,
+    "output_activation": "identity",
+    "output_scale": 1.0,
+    "hard_bc": false,
+    "hard_bc_scale": 10.0,
+    "postprocessor_type": "mlp",
+    "spectral_norm_postprocessor": false,
+    "noise_augmentation_sigma": 0.0,
+    "postprocessor_gain_penalty": 0.0
+  }
+}

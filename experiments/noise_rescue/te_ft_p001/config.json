@@ -1,0 +1,35 @@
+{
+  "problem": "helmholtz",
+  "input_dim": 2,
+  "output_dim": 1,
+  "optimizer": "adam",
+  "lr": 0.0001,
+  "epochs": 40,
+  "batch_size": 16,
+  "bc_weight": 10.0,
+  "print_every": 4,
+  "val_every": 10,
+  "fixed_collocation": false,
+  "domain_lo": [
+    -1.0,
+    -1.0
+  ],
+  "domain_hi": [
+    1.0,
+    1.0
+  ],
+  "helmholtz_a1": 1.0,
+  "helmholtz_a2": 1.0,
+  "helmholtz_lambda": 1.0,
+  "output_activation": "tanh",
+  "hard_bc": true,
+  "seed": 42,
+  "noise_strength": 0.01,
+  "mode": "te",
+  "num_qubits": 4,
+  "num_quantum_layers": 3,
+  "q_ansatz": "hea",
+  "hidden_dim": 50,
+  "te_hidden_layers": 2,
+  "te_width": 10
+}

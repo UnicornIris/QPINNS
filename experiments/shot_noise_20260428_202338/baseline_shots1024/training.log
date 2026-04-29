@@ -1,0 +1,4 @@
+20:26:31 | ============================================================
+20:26:31 | Training helmholtz | mode=baseline | qubits=4 | noise=0.0
+20:26:31 | Parameters: {'quantum_layer': 36, 'preprocessor': 354, 'postprocessor': 301, 'total': 691}
+20:26:31 | ============================================================

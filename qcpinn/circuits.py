@@ -206,7 +206,7 @@ class QuantumLayer(nn.Module):
         """
         params_flat = self.params.reshape(-1)
 
-        if not self._use_noisy and batch_input.shape[0] > 1:
+        if not self._use_noisy and self.shots is None and batch_input.shape[0] > 1:
             # Use native parameter broadcasting for speed
             try:
                 y = circuit_fn(batch_input, params_flat)
